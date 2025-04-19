@@ -1,10 +1,20 @@
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  Title,
+} from 'chart.js';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
 const CategoryPieChart = ({ categories, expenses }) => {
+  if (!categories || !expenses || categories.length === 0 || expenses.length === 0) {
+    return <p>No data available for the pie chart.</p>;
+  }
+
   const data = {
     labels: categories,
     datasets: [
@@ -17,8 +27,8 @@ const CategoryPieChart = ({ categories, expenses }) => {
           '#4BC0C0',
           '#9966FF',
           '#FF9F40',
+          '#E7E9ED',
         ],
-        hoverOffset: 4,
       },
     ],
   };
@@ -27,11 +37,11 @@ const CategoryPieChart = ({ categories, expenses }) => {
     responsive: true,
     plugins: {
       legend: {
-        position: 'right',
+        position: 'top',
       },
       title: {
         display: true,
-        text: 'Expenses by Category',
+        text: 'Category-wise Expense Distribution',
       },
     },
   };

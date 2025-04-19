@@ -12,11 +12,7 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const BudgetVsActualChart = ({ budgetMap, expensesByCategory }) => {
-  const categories = Object.keys(budgetMap);
-  const budgetData = categories.map((cat) => budgetMap[cat]);
-  const actualData = categories.map((cat) => expensesByCategory[cat] || 0);
-
+const BudgetVsActualChart = ({ categories, budgetData, actualData }) => {
   const data = {
     labels: categories,
     datasets: [

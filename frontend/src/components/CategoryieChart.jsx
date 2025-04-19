@@ -34,12 +34,7 @@ const CategoryPieChart = ({ transactions }) => {
     ],
   };
 
-  return (
-    <div className="my-8">
-      <h2 className="text-2xl font-semibold text-center mb-4">Category Expenses</h2>
-      <Pie data={data} />
-    </div>
-  );
+  return <Pie data={data} />;
 };
 
 export default CategoryPieChart;

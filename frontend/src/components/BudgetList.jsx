@@ -1,4 +1,3 @@
-// components/BudgetList.js
 
 import React from 'react';
 
